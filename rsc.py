@@ -35,7 +35,6 @@ class RscDataHandler:
     def __init__(self, period):
         self.__pres__ = []
         self.__temp__ = []
-        self.len = 0
         self.running = False
         self.period = period
         self.sensor = rsc.RSC(0, 11, 12)
@@ -55,20 +54,19 @@ class RscDataHandler:
         while self.running:
             self.__pres__.append(self.sensor.getPressure()*self.INH2O_PASCAL)
             self.__temp__.append(self.sensor.getTemperature() + self.DEGC_KELVIN)
-            self.len = self.len + 1
-            time.sleep(0.01)
-            #print("Got " + str(self.len) + " samples")
+            
+    def len(self):
+        return len(self.__pres__)
 
     def __ave__(self,chan):
         if chan:
-            return reduce(lambda x, y: x+y, self.__temp__)/float(self.len)
+            return reduce(lambda x, y: x+y, self.__temp__)/float(len(self.__temp__))
         else:
-            return reduce(lambda x, y: x+y, self.__pres__)/float(self.len)
+            return reduce(lambda x, y: x+y, self.__pres__)/float(self.len())
     
     def __clear__(self):
         del self.__pres__[:]
         del self.__temp__[:]
-        self.len = 0
 
     def __setReady__(self):
         print("Getting data ready...")
@@ -98,7 +96,7 @@ def main():
         if (not dataHandler.dataReady) and (not dataHandler.running):
             dataHandler.start()
         elif dataHandler.dataReady:
-            print("Data ready, collected " + str(dataHandler.len) + " samples")
+            print("Data ready, collected " + str(dataHandler.len()) + " samples")
             pres, temp = dataHandler.getData()
             dataTrans.sendData("MWTP",pres)
             dataTrans.sendData("MWTT",temp)
