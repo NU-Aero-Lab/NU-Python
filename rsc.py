@@ -1,6 +1,5 @@
-from __future__ import print_function
 import threading
-import time, sys, atexit, socket, struct
+import time, sys, atexit
 from upm import pyupm_rsc as rsc
 from functools import reduce
 
@@ -58,27 +57,3 @@ class RscDataHandler:
         print(res[0])
         return res
 
-
-def main():
-
-    # This function lets you run code on exit
-    def exitHandler():
-        print("Exiting")
-        sys.exit(0)
-    atexit.register(exitHandler)
-    
-    # Create the data handler, and transferer, then send data!
-    dataHandler = RscDataHandler(0.5)
-    dataTrans = DataTransfer()
-    while True:
-        if (not dataHandler.dataReady) and (not dataHandler.running):
-            dataHandler.start()
-        elif dataHandler.dataReady:
-            print("Data ready, collected " + str(dataHandler.len()) + " samples")
-            pres, temp = dataHandler.getData()
-            dataTrans.sendData("MWTP",pres)
-            dataTrans.sendData("MWTT",temp)
-        
-
-if __name__ == '__main__':
-    main()

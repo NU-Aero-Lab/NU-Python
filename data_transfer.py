@@ -1,3 +1,5 @@
+import time, sys, atexit, socket, struct
+
 # For transfering data to server
 class DataTransfer:
       
