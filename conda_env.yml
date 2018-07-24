@@ -1,0 +1,9 @@
+# This file may be used to create a conda environment using:
+# $ conda create --name NU-Python --file <this file>
+
+name: NU-Python
+dependencies:
+- python=3.6
+
+- pip:
+  - envirophat
