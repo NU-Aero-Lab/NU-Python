@@ -6,8 +6,8 @@ from enviroHat import EnviroHatDataHandler
 def main():
 
     # Create the data handler, and transferer, then send data!
-    rscSensor = RscDataHandler(0.5)
-    enviroSensor = EnviroHatDataHandler(0.5)
+    rscSensor = RscDataHandler(0.15)
+    enviroSensor = EnviroHatDataHandler(1)
     dataTrans = DataTransfer()
     while True:
         if (not rscSensor.dataReady) and (not rscSensor.running):
