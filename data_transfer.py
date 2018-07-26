@@ -3,7 +3,7 @@ import time, sys, atexit, socket, struct
 # For transfering data to server
 class DataTransfer:
       
-    TCP_IP = '192.168.3.1'
+    TCP_IP = '192.168.3.101'
     TCP_PORT = 5005
       
     def __init__(self):
