@@ -1,4 +1,4 @@
-from enviroHat import weather
+from envirophat import weather
 from genericDataHandler import GenericDataHandler
 from functools import reduce
 
