@@ -7,7 +7,7 @@ from genericDataHandler import GenericDataHandler
 class RscDataHandler(GenericDataHandler):
     
     INH2O_PASCAL = 248.84
-    
+    OFFSET = -20.03885
     def __init__(self, period):
         super().__init__(period)
         self.__pres__ = []
@@ -18,7 +18,7 @@ class RscDataHandler(GenericDataHandler):
         print("Sensor Serial Number: {0}".format(self.sensor.getSensorSerialNumber()))
 
     def __append__(self):
-        self.__pres__.append(self.sensor.getPressure()*self.INH2O_PASCAL)
+        self.__pres__.append(self.sensor.getPressure()*self.INH2O_PASCAL + self.OFFSET)
         self.__temp__.append(self.sensor.getTemperature() + self.DEGC_KELVIN)
             
     def len(self):
