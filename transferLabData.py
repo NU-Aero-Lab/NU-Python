@@ -9,6 +9,7 @@ def main():
     # Create the data handler, and transferer, then send data!
     rscSensor = RscDataHandler(0.15)
     enviroSensor = EnviroHatDataHandler(1)
+    heart = HeartBeat(5)
     dataTrans = DataTransfer()
     while True:
         if (not rscSensor.dataReady) and (not rscSensor.running):
@@ -27,6 +28,8 @@ def main():
             dataTrans.sendData("LATP",pres)
             dataTrans.sendData("LATT",temp)
 
+        pulse = heart.beat()
+        dataTrans.sendData("BEAT", pulse)
         
 if __name__ == '__main__':
     main()
