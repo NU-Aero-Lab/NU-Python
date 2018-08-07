@@ -7,7 +7,7 @@ from hrtbt import HeartBeat
 def main():
 
     # Create the data handler, and transferer, then send data!
-    rscSensor = RscDataHandler(0.15)
+    rscSensor = RscDataHandler(1)
     enviroSensor = EnviroHatDataHandler(1)
     heart = HeartBeat(5)
     dataTrans = DataTransfer()
@@ -15,7 +15,6 @@ def main():
         if (not rscSensor.dataReady) and (not rscSensor.running):
             rscSensor.start()
         elif rscSensor.dataReady:
-        #    print("Data ready, collected " + str(rscSensor.len()) + " samples")
             pres, temp = rscSensor.getData()
             dataTrans.sendData("MWTP",pres)
             dataTrans.sendData("MWTT",temp)
@@ -23,13 +22,14 @@ def main():
         if (not enviroSensor.dataReady) and (not enviroSensor.running):
             enviroSensor.start()
         elif enviroSensor.dataReady:
-        #    print("Data ready, collected " + str(enviroSensor.len()) + " samples")
             pres, temp = enviroSensor.getData()
             dataTrans.sendData("LATP",pres)
             dataTrans.sendData("LATT",temp)
-
-        pulse = heart.beat()
-        dataTrans.sendData("BEAT", pulse)
+            
+        if (not heart.dataReady) and (not heart.running):
+            heart.start()
+        elif heart.dataReady:
+            dataTrans.sendData("BEAT", heart.beat())
         
 if __name__ == '__main__':
     main()

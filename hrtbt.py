@@ -4,8 +4,13 @@ from genericDataHandler import GenericDataHandler
 class HeartBeat(GenericDataHandler):
         
         def __init__(self, period):
-                super().__init__(period)
-                print("Beating")
+            super().__init__(period)
+            self.hb = 0
 
-        def beat (self):
-                return 1
+        def beat(self):
+            self.dataReady = False
+            if self.hb:
+                self.hb = 0
+            else:
+                self.hb = 1
+            return float(self.hb)

@@ -10,7 +10,6 @@ class GenericDataHandler(object):
         self.dataReady = False
 
     def __setReady__(self):
-#        print("Getting data ready...")
         self.running = False
         self.dataReady = True
 
