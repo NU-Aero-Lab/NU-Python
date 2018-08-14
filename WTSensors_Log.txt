@@ -1,0 +1,21 @@
+DEBUG:root:Error from transferLabData
+Traceback (most recent call last):
+  File "transferLabData.py", line 22, in main
+    dataTrans.sendData("MWTP",pres)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+DEBUG:root:Error from transferLabData
+Traceback (most recent call last):
+  File "transferLabData.py", line 22, in main
+    dataTrans.sendData("MWTP",pres)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+DEBUG:root:Error from transferLabData
+Traceback (most recent call last):
+  File "transferLabData.py", line 29, in main
+    dataTrans.sendData("LATP",pres)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+ConnectionResetError: [Errno 104] Connection reset by peer
