@@ -1,4 +1,4 @@
-import sys, logging
+import sys, logging, errno
 from rsc import RscDataHandler
 from data_transfer import DataTransfer
 from enviroHat import EnviroHatDataHandler
@@ -33,6 +33,10 @@ def main():
                     heart.start()
                 elif heart.dataReady:
                     dataTrans.sendData("BEAT", heart.beat())
+    except IOError as e:
+        if e.errno == errno.EPIPE:
+            pass
+
     except Exception:
             logger.DEBUG("Error from transferLabData", exc_info=True)
         
