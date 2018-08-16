@@ -1,4 +1,4 @@
-import sys, logging
+import sys, logging, errno
 from rsc import RscDataHandler
 from data_transfer import DataTransfer
 from enviroHat import EnviroHatDataHandler
@@ -13,8 +13,8 @@ def main():
     enviroSensor = EnviroHatDataHandler(1)
     heart = HeartBeat(5)
     dataTrans = DataTransfer()
-    try:
-            while True:
+    while True:
+            try:
                 if (not rscSensor.dataReady) and (not rscSensor.running):
                     rscSensor.start()
                 elif rscSensor.dataReady:
@@ -33,8 +33,15 @@ def main():
                     heart.start()
                 elif heart.dataReady:
                     dataTrans.sendData("BEAT", heart.beat())
-    except Exception:
-            logger.debug("Error from transferLabData", exc_info=True)
-        
+            
+            except IOError as e:
+                if e.errno == errno.EPIPE:
+                    logger.debug("IOERROR", exc_info=True)
+                    print("IOError")
+                    continue
+
+            except Exception:
+                    logger.debug("Error from transferLabData", exc_info=True)
+                
 if __name__ == '__main__':
     main()
