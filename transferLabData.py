@@ -6,8 +6,8 @@ from hrtbt import HeartBeat
 
 def main():
     #Log file setting
-    logging.basicConfig(filename="WTSensors_Log.txt", level=logging.DEBUG)
-    logger = logging.getLogger()
+#    logging.basicConfig(filename="WTSensors_Log.txt", level=logging.DEBUG)
+#    logger = logging.getLogger()
     # Create the data handler, and transferer, then send data!
     rscSensor = RscDataHandler(1)
     enviroSensor = EnviroHatDataHandler(1)
@@ -34,14 +34,14 @@ def main():
                 elif heart.dataReady:
                     dataTrans.sendData("BEAT", heart.beat())
             
-            except IOError as e:
-                if e.errno == errno.EPIPE:
-                    logger.debug("IOERROR", exc_info=True)
-                    print("IOError")
-                    continue
+#            except IOError as e:
+#                if e.errno == errno.EPIPE:
+#                    logger.debug("IOERROR", exc_info=True)
+#                    print("IOError")
+#                    continue
 
-            except Exception:
-                    logger.debug("Error from transferLabData", exc_info=True)
+#            except Exception:
+#                    logger.debug("Error from transferLabData", exc_info=True)
                 
 if __name__ == '__main__':
     main()
