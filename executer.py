@@ -12,9 +12,9 @@ while True:
         print("Starting...")
         time.sleep(3)
         logging.info("Starting")
-        p = Popen("python " + transferLabData.py, shell=True)
+        p = Popen("sudo python3.5 " + "transferLabData.py", shell=True)
         p.wait()
-#        os.execv('transferLabData.py', ['None'])
+#        os.execv('transferLabData', ['None'])
 
     except KeyboardInterrupt:
         print("Stopping (User)")

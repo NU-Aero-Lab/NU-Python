@@ -1,0 +1,70 @@
+
+INFO:root:Starting
+DEBUG:root:IOERROR
+Traceback (most recent call last):
+  File "transferLabData.py", line 21, in main
+    dataTrans.sendData("MWTP",pres)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 20, in sendData
+    self.sock.send(packed_data)
+BrokenPipeError: [Errno 32] Broken pipe
+DEBUG:root:IOERROR
+Traceback (most recent call last):
+  File "transferLabData.py", line 28, in main
+    dataTrans.sendData("LATP",pres)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+DEBUG:root:IOERROR
+Traceback (most recent call last):
+  File "transferLabData.py", line 21, in main
+    dataTrans.sendData("MWTP",pres)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+DEBUG:root:IOERROR
+Traceback (most recent call last):
+  File "transferLabData.py", line 28, in main
+    dataTrans.sendData("LATP",pres)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+DEBUG:root:IOERROR
+Traceback (most recent call last):
+  File "transferLabData.py", line 21, in main
+    dataTrans.sendData("MWTP",pres)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+DEBUG:root:IOERROR
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("BEAT", heart.beat())
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+DEBUG:root:IOERROR
+Traceback (most recent call last):
+  File "transferLabData.py", line 28, in main
+    dataTrans.sendData("LATP",pres)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+DEBUG:root:IOERROR
+Traceback (most recent call last):
+  File "transferLabData.py", line 21, in main
+    dataTrans.sendData("MWTP",pres)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+INFO:root:Stopped by User
+INFO:root:Stopped by User
+INFO:root:Starting
+DEBUG:root:IOERROR
+Traceback (most recent call last):
+  File "transferLabData.py", line 28, in main
+    dataTrans.sendData("LATP",pres)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+INFO:root:Starting
+INFO:root:Stopped by User

@@ -6,9 +6,8 @@ from hrtbt import HeartBeat
 
 def main():
     #Log file setting
-#    logging.basicConfig(filename="WTSensors_Log.txt", level=logging.DEBUG)
-#    logger = logging.getLogger()
-    # Create the data handler, and transferer, then send data!
+    logging.basicConfig(filename="WTSensors_Log.txt", level=logging.DEBUG)
+    logger = logging.getLogger()    # Create the data handler, and transferer, then send data!
     rscSensor = RscDataHandler(1)
     enviroSensor = EnviroHatDataHandler(1)
     heart = HeartBeat(5)
@@ -28,20 +27,27 @@ def main():
                     pres, temp = enviroSensor.getData()
                     dataTrans.sendData("LATP",pres)
                     dataTrans.sendData("LATT",temp)
-                    
+                        
                 if (not heart.dataReady) and (not heart.running):
-                    heart.start()
+                        heart.start()
                 elif heart.dataReady:
-                    dataTrans.sendData("BEAT", heart.beat())
+                        dataTrans.sendData("BEAT", heart.beat())
             
-#            except IOError as e:
-#                if e.errno == errno.EPIPE:
-#                    logger.debug("IOERROR", exc_info=True)
-#                    print("IOError")
-#                    continue
-
-#            except Exception:
-#                    logger.debug("Error from transferLabData", exc_info=True)
+            except KeyboardInterrupt:
+                print("Stopping (User)")
+                logging.info("Stopped by User")
+                break
+            
+            except IOError as e:
+                if e.errno == errno.EPIPE:
+                    logger.debug("IOERROR", exc_info=True)
+                    print("IO Error")
+                    break
+            
+            except Exception:
+                    logger.debug("Other Error", exc_info=True)
+                    print("Stopping (Exception)")
+                    break
                 
 if __name__ == '__main__':
     main()
