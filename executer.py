@@ -1,33 +1,31 @@
 #!/usr/bin/python3
 
-import os, time, logging, errno, sys, transferLabData
+import time, logging, errno, sys, transferLabData
 from subprocess import Popen
 
-#Log file setting
-logging.basicConfig(filename="WTSensors_Log.txt", level=logging.DEBUG)
-logger = logging.getLogger()
+#Get Logger
+logger = logging.getLogger('executer')
 
 while True:
     try:
-        print("Starting...")
-        time.sleep(3)
-        logging.info("Starting")
+        print("Executing transferLabData.py ...")
+        time.sleep(2)
+        logger.info("Starting")
         p = Popen("sudo python3.5 " + "transferLabData.py", shell=True)
         p.wait()
-#        os.execv('transferLabData', ['None'])
 
-    except KeyboardInterrupt:
-        print("Stopping (User)")
-        logging.info("Stopped by User")
-        break
-    
     except IOError as e:
         if e.errno == errno.EPIPE:
-            logger.debug("IOERROR", exc_info=True)
-            print("IO Error")
+            logger.debug("IOError", exc_info=True)
+            print("Executer: IO Error")
             continue
     
     except Exception:
             logger.debug("Other Error", exc_info=True)
-            print("Stopping (Exception)")
-            break
+            print("Executer: Exception! Check Log File")
+            continue
+    
+    except KeyboardInterrupt:
+        print("Stopping (User)")
+        logger.info("Executer: Stopped by User")
+        break

@@ -3,11 +3,13 @@ from rsc import RscDataHandler
 from data_transfer import DataTransfer
 from enviroHat import EnviroHatDataHandler
 from hrtbt import HeartBeat
+from tunnelLogger import setlogger
 
 def main():
-    #Log file setting
-    logging.basicConfig(filename="WTSensors_Log.txt", level=logging.DEBUG)
-    logger = logging.getLogger()    # Create the data handler, and transferer, then send data!
+    #Get Logger
+    logger = logging.getLogger('transferLabData')
+    
+    # Create the data handler, and transferer, then send data!
     rscSensor = RscDataHandler(1)
     enviroSensor = EnviroHatDataHandler(1)
     heart = HeartBeat(5)
@@ -33,21 +35,25 @@ def main():
                 elif heart.dataReady:
                         dataTrans.sendData("BEAT", heart.beat())
             
-            except KeyboardInterrupt:
-                print("Stopping (User)")
-                logging.info("Stopped by User")
-                break
-            
+            except TypeError:
+                logger.debug("TypeError", exc_info = True) 
+                continue
+
             except IOError as e:
                 if e.errno == errno.EPIPE:
-                    logger.debug("IOERROR", exc_info=True)
                     print("IO Error")
+                    logger.debug("IOError", exc_info = True)
                     break
             
+            except KeyboardInterrupt:
+                print("Stopping (User)")
+                logger.info("Stopped by User (KeyboardInterrupt")
+                break
+
             except Exception:
-                    logger.debug("Other Error", exc_info=True)
-                    print("Stopping (Exception)")
+                    logger.debug("Other Error", exc_info = True)
+                    print("Stopping (Other Exception)")
                     break
-                
+
 if __name__ == '__main__':
     main()
