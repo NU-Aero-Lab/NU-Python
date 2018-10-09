@@ -22,14 +22,11 @@ R2inv = np.linalg.inv(R2)
 Rinv = np.matmul(R2inv,R.transpose())
 C = np.matmul(Rinv,H)
 
-# Write out the coefficient matrix
-np.savetxt("coef.csv", C, delimiter=",")
-
 # Get the modelled loads
 Hp = np.matmul(R,C)
 
-np.savetxt("H.csv", H, delimiter=",")
-np.savetxt("Hp.csv", Hp, delimiter=",")
+err = np.sqrt((np.sum((Hp-H)**2,axis=0))/(H.shape[0]-6))
+err_norm = (err / np.array([50,40,270,25,20,135]))*100
 
 # Plot the results
 spv = [321, 323, 325, 322, 324, 326]
@@ -37,7 +34,8 @@ ttv = ["Fx","Fy","Fz","Mx","My","Mz"]
 for i, ind in enumerate(spv):
     plt.subplot(ind)
     plt.scatter(H[:,i], Hp[:,i])
-    plt.title(ttv[i])
+    plt.plot([0,np.max(H[:,i])],[0,np.max(H[:,i])],"k--")
+    plt.title('{0} Err:{1:0.1f}%FS'.format(ttv[i],err_norm[i]))
     plt.grid()
     plt.xlabel("Model")
     plt.ylabel("Original")
