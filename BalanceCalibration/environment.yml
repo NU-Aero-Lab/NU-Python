@@ -3,7 +3,7 @@
 
 name: balanceCal
 dependencies:
-- python=3.6
+- python>=3.6
 - matplotlib
 - numpy
 - scipy
