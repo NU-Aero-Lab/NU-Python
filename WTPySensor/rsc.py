@@ -18,7 +18,7 @@ class RscDataHandler(GenericDataHandler):
         print("Sensor Serial Number: {0}".format(self.sensor.getSensorSerialNumber()))
 
     def __append__(self):
-        self.__pres__.append(self.sensor.getPressure()*self.INH2O_PASCAL + self.OFFSET)
+        self.__pres__.append(self.sensor.getPressure()*self.INH2O_PASCAL)
         self.__temp__.append(self.sensor.getTemperature() + self.DEGC_KELVIN)
             
     def len(self):

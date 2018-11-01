@@ -18601,3 +18601,148 @@ BrokenPipeError: [Errno 32] Broken pipe
 2018-11-01 06:04:08,693 - executer - INFO - Starting
 2018-11-01 06:16:07,902 - executer - INFO - Executer: Stopped by User
 2018-11-01 06:16:07,923 - transferLabData - INFO - Stopped by User (KeyboardInterrupt
+2018-11-01 06:27:57,348 - executer - INFO - Starting
+2018-11-01 06:30:10,711 - executer - INFO - Starting
+2018-11-01 06:32:23,830 - executer - INFO - Starting
+2018-11-01 06:34:36,953 - executer - INFO - Starting
+2018-11-01 06:36:50,069 - executer - INFO - Starting
+2018-11-01 06:39:03,182 - executer - INFO - Starting
+2018-11-01 06:41:16,323 - executer - INFO - Starting
+2018-11-01 06:43:29,417 - executer - INFO - Starting
+2018-11-01 06:45:42,555 - executer - INFO - Starting
+2018-11-01 06:46:41,810 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 30, in main
+    dataTrans.sendData("LATP",pres)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 20, in sendData
+    self.sock.send(packed_data)
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-01 06:46:44,583 - executer - INFO - Starting
+2018-11-01 06:47:08,168 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 23, in main
+    dataTrans.sendData("MWTP",pres)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-01 06:47:13,918 - executer - INFO - Starting
+2018-11-01 06:49:27,829 - executer - INFO - Starting
+2018-11-01 06:51:40,948 - executer - INFO - Starting
+2018-11-01 06:53:54,069 - executer - INFO - Starting
+2018-11-01 06:56:07,188 - executer - INFO - Starting
+2018-11-01 06:58:20,309 - executer - INFO - Starting
+2018-11-01 07:00:33,428 - executer - INFO - Starting
+2018-11-01 07:02:46,551 - executer - INFO - Starting
+2018-11-01 07:04:59,669 - executer - INFO - Starting
+2018-11-01 07:07:12,782 - executer - INFO - Starting
+2018-11-01 07:09:25,904 - executer - INFO - Starting
+2018-11-01 07:11:39,021 - executer - INFO - Starting
+2018-11-01 07:11:41,672 - executer - INFO - Starting
+2018-11-01 07:13:57,268 - executer - INFO - Starting
+2018-11-01 07:16:10,392 - executer - INFO - Starting
+2018-11-01 07:18:23,508 - executer - INFO - Starting
+2018-11-01 07:20:36,633 - executer - INFO - Starting
+2018-11-01 07:22:49,740 - executer - INFO - Starting
+2018-11-01 07:25:02,868 - executer - INFO - Starting
+2018-11-01 07:27:15,990 - executer - INFO - Starting
+2018-11-01 07:29:29,107 - executer - INFO - Starting
+2018-11-01 07:31:42,229 - executer - INFO - Starting
+2018-11-01 07:33:55,350 - executer - INFO - Starting
+2018-11-01 07:36:08,468 - executer - INFO - Starting
+2018-11-01 07:38:21,554 - executer - INFO - Starting
+2018-11-01 07:40:34,708 - executer - INFO - Starting
+2018-11-01 07:42:47,828 - executer - INFO - Starting
+2018-11-01 07:45:00,956 - executer - INFO - Starting
+2018-11-01 07:47:14,071 - executer - INFO - Starting
+2018-11-01 07:49:27,188 - executer - INFO - Starting
+2018-11-01 07:51:40,312 - executer - INFO - Starting
+2018-11-01 07:53:53,418 - executer - INFO - Starting
+2018-11-01 07:53:56,018 - executer - INFO - Starting
+2018-11-01 07:56:11,660 - executer - INFO - Starting
+2018-11-01 07:58:24,778 - executer - INFO - Starting
+2018-11-01 07:58:27,425 - executer - INFO - Starting
+2018-11-01 08:00:43,028 - executer - INFO - Starting
+2018-11-01 08:02:56,150 - executer - INFO - Starting
+2018-11-01 08:05:09,269 - executer - INFO - Starting
+2018-11-01 08:07:22,390 - executer - INFO - Starting
+2018-11-01 08:09:35,509 - executer - INFO - Starting
+2018-11-01 08:11:48,635 - executer - INFO - Starting
+2018-11-01 08:14:01,751 - executer - INFO - Starting
+2018-11-01 08:16:14,873 - executer - INFO - Starting
+2018-11-01 08:16:32,156 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 36, in main
+    dataTrans.sendData("BEAT", heart.beat())
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-01 08:16:34,904 - executer - INFO - Starting
+2018-11-01 08:18:48,471 - executer - INFO - Starting
+2018-11-01 08:21:01,588 - executer - INFO - Starting
+2018-11-01 08:22:56,686 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 30, in main
+    dataTrans.sendData("LATP",pres)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 20, in sendData
+    self.sock.send(packed_data)
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-01 08:23:02,420 - executer - INFO - Starting
+2018-11-01 08:24:44,954 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 30, in main
+    dataTrans.sendData("LATP",pres)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 20, in sendData
+    self.sock.send(packed_data)
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-01 08:24:47,146 - executer - INFO - Starting
+2018-11-01 08:25:41,733 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 31, in main
+    dataTrans.sendData("LATT",temp)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-01 08:25:43,810 - executer - INFO - Starting
+2018-11-01 08:26:31,480 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 30, in main
+    dataTrans.sendData("LATP",pres)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-01 08:26:37,316 - executer - INFO - Starting
+2018-11-01 08:28:41,899 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 30, in main
+    dataTrans.sendData("LATP",pres)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-01 08:28:45,739 - executer - INFO - Starting
+2018-11-01 08:31:00,628 - executer - INFO - Starting
+2018-11-01 08:34:57,490 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 31, in main
+    dataTrans.sendData("LATT",temp)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-01 08:35:01,221 - executer - INFO - Starting
+2018-11-01 08:59:10,793 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 23, in main
+    dataTrans.sendData("MWTP",pres)
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 20, in sendData
+    self.sock.send(packed_data)
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-01 08:59:17,060 - executer - INFO - Starting
+2018-11-01 09:01:17,497 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 36, in main
+    dataTrans.sendData("BEAT", heart.beat())
+  File "/home/pi/Documents/IoT/NU-Python/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-01 09:01:20,460 - executer - INFO - Starting
+2018-11-01 09:04:35,806 - executer - INFO - Executer: Stopped by User
+2018-11-01 09:04:35,933 - transferLabData - INFO - Stopped by User (KeyboardInterrupt
