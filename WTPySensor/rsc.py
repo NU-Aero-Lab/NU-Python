@@ -7,7 +7,7 @@ from genericDataHandler import GenericDataHandler
 class RscDataHandler(GenericDataHandler):
     
     INH2O_PASCAL = 248.84
-    OFFSET = -19.558 
+    # OFFSET = -19.558 
     def __init__(self, period):
         super().__init__(period)
         self.__pres__ = []
