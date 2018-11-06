@@ -49,11 +49,11 @@ bounds = Bounds(lb,ub)
 boundaries = ((1.2,-1.2),)*(len(coefs0))
 
 # minimise function
-# res = minimize(Fitness, coefs0, method='TNC', options={'accuracy' : 1e-5, 'xtol' : 1e-10,'ftol' : 1e-10, 'disp' : True}, args=(CpFront,CpRear,Area,normalFront,normalRear,CD_F,CD_R), bounds=bounds)
+res = minimize(Fitness, coefs0, method='TNC', options={'accuracy' : 1e-5, 'xtol' : 1e-10,'ftol' : 1e-10, 'disp' : True}, args=(CpFront,CpRear,Area,normalFront,normalRear,CD_F,CD_R), bounds=bounds)
 
 # genetic algorithm (differential evolution)
-res = differential_evolution(Fitness, bounds=boundaries, args=(CpFront,CpRear,Area,normalFront,normalRear,CD_F,CD_R), strategy='best1bin', maxiter=10, popsize=15, tol=0.5, mutation=(0.5,1),
-                            recombination= 0.7, disp=True)
+# res = differential_evolution(Fitness, bounds=boundaries, args=(CpFront,CpRear,Area,normalFront,normalRear,CD_F,CD_R), strategy='best1bin', maxiter=10, popsize=15, tol=0.5, mutation=(0.5,1),
+#                             recombination= 0.7, disp=True)
 
 # print result
 print('ForceF= ', ForceF(res.x, CpFront, Area, normalFront), '  Difference=', CD_F-ForceF(res.x, CpFront, Area, normalFront))
