@@ -10,7 +10,7 @@ def main():
     logger = logging.getLogger('transferLabData')
     
     # Create the data handler, and transferer, then send data!
-    rscSensor = RscDataHandler(1)
+    rscSensor = RscDataHandler(0.1)
     enviroSensor = EnviroHatDataHandler(1)
     heart = HeartBeat(5)
     dataTrans = DataTransfer()
@@ -22,10 +22,6 @@ def main():
                     pres, temp = rscSensor.getData()
                     dataTrans.sendData("MWTP",pres)
                     dataTrans.sendData("MWTT",temp)
-                    dataTrans.sendData("SWTP",rscSensor.stdev())
-                    dataTrans.sendData("UWTP",rscSensor.max())
-                    dataTrans.sendData("LWTP",rscSensor.min())
-                    dataTrans.sendData("NWTP",rscSensor.size())
 
                 if (not enviroSensor.dataReady) and (not enviroSensor.running):
                     enviroSensor.start()

@@ -5,7 +5,7 @@ from functools import reduce
 class EnviroHatDataHandler(GenericDataHandler):
 
     def __init__(self, period):
-        super().__init__(period)
+        super().__init__(period, "EnviropHAT")
         self.__atm_pres__ = []
         self.__atm_temp__ = []
 
@@ -25,4 +25,7 @@ class EnviroHatDataHandler(GenericDataHandler):
     def __clear__(self):
         del self.__atm_pres__[:]
         del self.__atm_temp__[:]
+        
+    def __size__(self):
+        return len(self.__atm_pres__)
 

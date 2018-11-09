@@ -4,10 +4,11 @@ class GenericDataHandler(object):
 
     DEGC_KELVIN = 273.15
 
-    def __init__(self, period):
+    def __init__(self, period, name):
         self.period = period
         self.running = False
         self.dataReady = False
+        self.name = name
 
     def __setReady__(self):
         self.running = False
@@ -28,6 +29,9 @@ class GenericDataHandler(object):
         self.dataReady = False
         return (self.__ave__(0),self.__ave__(1))
 
+    def print(self):
+        pass
+
     def __append__(self):
         pass
 
@@ -35,4 +39,16 @@ class GenericDataHandler(object):
         pass
 
     def __ave__(self,chan):
+        pass
+    
+    def size(self):
+        pass
+    
+    def stdev(self):
+        pass
+    
+    def min(self):
+        pass
+    
+    def max(self):
         pass

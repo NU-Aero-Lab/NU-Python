@@ -4,7 +4,7 @@ from genericDataHandler import GenericDataHandler
 class HeartBeat(GenericDataHandler):
         
         def __init__(self, period):
-            super().__init__(period)
+            super().__init__(period, "Heartbeat")
             self.hb = 0
 
         def beat(self):
