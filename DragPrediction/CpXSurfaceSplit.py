@@ -2,19 +2,31 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Load the data in
-CpX_data = np.genfromtxt('CpX.csv', delimiter=',',skip_header=True)
+CdX_B = np.genfromtxt('Base-CdX.csv', delimiter=',',skip_header=True)
+CdX_F = np.genfromtxt('Front-CdX.csv', delimiter=',',skip_header=True)
 
-# Split coordinate data with thresholds
-Y = CpX_data[:,1] < 0.75225
-# X = CpX_data[:,0]
+# Car Base
+# Split y coordinates
+Y = CdX_B[:,1] < 0.75225
+yNew = CdX_B[Y,0:4]
 
-# Z = CpX_data[:,2] > 0.289125
-CpX = CpX_data[Y,0:4]
+#  Split z coordinates
+Z = yNew[:,2] > 0.234
+zNew = yNew[Z,0:4]
+X = ((zNew[:,2] > 0.6) | (zNew[:,0] > -0.4))
+xNew = zNew[X,0:4]
 
-print(CpX)
-# start with a y threshold
+saveData = np.savetxt("CdX-B.csv", xNew, delimiter=",")
 
-# yNew = CpX_data[Y,1]
-# zNew = CpX_data[Z,1]
+# Car Forebody
+# Split y coordinates
+Y_F = CdX_F[:,1] < 0.755
+yNew_F = CdX_F[Y_F,0:4]
 
-saveData = np.savetxt("check.csv", CpX, delimiter=",")
+#  Split z coordinates
+Z_F = yNew_F[:,2] > 0.285
+zNew_F = yNew_F[Z_F,0:4]
+X_F = (((zNew_F[:,0] < -4) | (zNew_F[:,2] > 0.6)) | ((zNew_F[:,0] < -4) | (zNew_F[:,2] > 0.6)))
+xNew_F = zNew_F[X_F,0:4]
+
+saveData = np.savetxt("CdX-F.csv", xNew_F, delimiter=",")

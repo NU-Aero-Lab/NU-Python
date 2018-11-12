@@ -5,12 +5,12 @@ from scipy.optimize import Bounds
 from scipy.optimize import differential_evolution
 
 # Load the data in
-cp_data = np.genfromtxt('2CarPlatoon-Leader_0.5L.csv', delimiter=',',skip_header=True)
+cp_data = np.genfromtxt('NL2VP_0.5L.csv', delimiter=',',skip_header=True)
 
 # Variables
 Area = 0.0885*0.11167 
-CD_F = 0.06807
-CD_R = 0.0582
+CD_F = 0.016565843
+CD_R = 0.034469257
 
 # Extract and Split Cp 
 front = cp_data[:,0] < -2 
@@ -35,25 +35,19 @@ def ForceR(Coefs, CpF, CpR, Area, NR):
 def Fitness(Coefs, CpF, CpR, Area, NF, NR, knownF, knownR):
     return ((knownF-ForceF(Coefs, CpF, Area, NF))**2)+((knownR-ForceR(Coefs, CpF, CpR, Area, NR))**2)
 
-def upperLim(ub):
-    return 1.2
-
-def lowerLim(lb):
-    return -1.2
-
 # Solution bounds
 ub = np.full((1,np.size(coefs0)), 1.2).flatten() 
-lb = np.full((1,np.size(coefs0)), -1.2).flatten()
+lb = np.full((1,np.size(coefs0)), 0.8).flatten()
 bounds = Bounds(lb,ub)
 
-boundaries = ((1.2,-1.2),)*(len(coefs0))
+boundaries = ((1.2,-1.2),)*(len(coefs0)) # boundaries for genetic algorithm
 
 # minimise function
-# res = minimize(Fitness, coefs0, method='TNC', options={'accuracy' : 1e-5, 'xtol' : 1e-10,'ftol' : 1e-10, 'disp' : True}, args=(CpFront,CpRear,Area,normalFront,normalRear,CD_F,CD_R), bounds=bounds)
+res = minimize(Fitness, coefs0, method='TNC', options={'accuracy' : 1e-20, 'xtol' : 1e-20,'ftol' : 1e-20, 'disp' : True}, args=(CpFront,CpRear,Area,normalFront,normalRear,CD_F,CD_R), bounds=bounds)
 
 # genetic algorithm (differential evolution)
-res = differential_evolution(Fitness, bounds=boundaries, args=(CpFront,CpRear,Area,normalFront,normalRear,CD_F,CD_R), strategy='best1bin', maxiter=10, popsize=15, tol=0.5, mutation=(0.5,1),
-                            recombination= 0.7, disp=True)
+# res = differential_evolution(Fitness, bounds=boundaries, args=(CpFront,CpRear,Area,normalFront,normalRear,CD_F,CD_R), strategy='best1bin', maxiter=10, popsize=15, tol=0.5, mutation=(0.5,1),
+#                             recombination= 0.7, disp=True)
 
 # print result
 print('ForceF= ', ForceF(res.x, CpFront, Area, normalFront), '  Difference=', CD_F-ForceF(res.x, CpFront, Area, normalFront))
