@@ -4,13 +4,16 @@ from scipy.optimize import minimize
 from scipy.optimize import Bounds
 from scipy.optimize import differential_evolution
 
+# add all the raw data into an array and create a for loop that goes through all 
+# the information at once and displays all the figures 
+
 # Load the data in
-cp_data = np.genfromtxt('NL2VP_0.5L.csv', delimiter=',',skip_header=True)
+cp_data = np.genfromtxt('NL2VP_0.75T.csv', delimiter=',',skip_header=True)
 
 # Variables
 Area = 0.0885*0.11167 
-CD_F = 0.016565843
-CD_R = 0.034469257
+CD_F = 0.0572 # This is the drag coefficient of the whole front half of the car
+CD_R = 0.0871
 
 # Extract and Split Cp 
 front = cp_data[:,0] < -2 
@@ -36,8 +39,8 @@ def Fitness(Coefs, CpF, CpR, Area, NF, NR, knownF, knownR):
     return ((knownF-ForceF(Coefs, CpF, Area, NF))**2)+((knownR-ForceR(Coefs, CpF, CpR, Area, NR))**2)
 
 # Solution bounds
-ub = np.full((1,np.size(coefs0)), 1.2).flatten() 
-lb = np.full((1,np.size(coefs0)), 0.8).flatten()
+ub = np.full((1,np.size(coefs0)), 1.3).flatten() 
+lb = np.full((1,np.size(coefs0)), 0.5).flatten()
 bounds = Bounds(lb,ub)
 
 boundaries = ((1.2,-1.2),)*(len(coefs0)) # boundaries for genetic algorithm
@@ -50,8 +53,8 @@ res = minimize(Fitness, coefs0, method='TNC', options={'accuracy' : 1e-20, 'xtol
 #                             recombination= 0.7, disp=True)
 
 # print result
-print('ForceF= ', ForceF(res.x, CpFront, Area, normalFront), '  Difference=', CD_F-ForceF(res.x, CpFront, Area, normalFront))
-print('ForceR= ', ForceR(res.x, CpFront, CpRear, Area, normalRear), '  Difference=', CD_R-ForceR(res.x, CpFront, CpRear, Area, normalRear))
+print('ForceF= ', ForceF(res.x, CpFront, Area, normalFront), '  %Diff=', (CD_F-ForceF(res.x, CpFront, Area, normalFront))/CD_F*100)
+print('ForceR= ', ForceR(res.x, CpFront, CpRear, Area, normalRear), '  %Diff=', (CD_R-ForceR(res.x, CpFront, CpRear, Area, normalRear))/CD_R*100)
 
 # plots
 x1 = np.linspace(0, np.size(CpFront), num=np.size(CpFront))
