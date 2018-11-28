@@ -1,0 +1,12 @@
+2018-11-28 17:32:24,886 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 17:32:26,339 - transferLabData - DEBUG - TypeError
+Traceback (most recent call last):
+  File "transferLabData.py", line 33, in main
+    pres, temp = enviroSensor.getData()
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/genericDataHandler.py", line 30, in getData
+    return (self.__ave__(0),self.__ave__(1))
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/enviroHat.py", line 23, in __ave__
+    return reduce(lambda x, y: x+y, self.__atm_pres__)/float(self.len())
+TypeError: reduce() of empty sequence with no initial value
+2018-11-28 17:32:27,168 - executer - INFO - Executer: Stopped by User
+2018-11-28 17:32:27,176 - transferLabData - INFO - Stopped by User (KeyboardInterrupt
