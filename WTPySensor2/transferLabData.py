@@ -12,7 +12,7 @@ def main():
     # Create the data handler, and transferer, then send data!
 #    rscSensor = RscDataHandler(1)
     enviroSensor = EnviroHatDataHandler(1)
-    heart = HeartBeat(5)
+#    heart = HeartBeat(5)
     dataTrans = DataTransfer()
     while True:
             try:
@@ -31,13 +31,13 @@ def main():
                     enviroSensor.start()
                 elif enviroSensor.dataReady:
                     pres, temp = enviroSensor.getData()
-                    dataTrans.sendData("LATP2",pres)
-                    dataTrans.sendData("LATT2",temp)
+                    dataTrans.sendData("LAP2",pres)
+                    dataTrans.sendData("LAT2",temp)
                         
-                if (not heart.dataReady) and (not heart.running):
-                        heart.start()
-                elif heart.dataReady:
-                        dataTrans.sendData("BEAT2", heart.beat())
+#                if (not heart.dataReady) and (not heart.running):
+#                        heart.start()
+#                elif heart.dataReady:
+#                        dataTrans.sendData("BET2", heart.beat())
             
             except TypeError:
                 logger.debug("TypeError", exc_info = True) 
