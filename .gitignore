@@ -104,5 +104,6 @@ venv.bak/
 .mypy_cache/
 
 BalanceCalibration/\.vscode/
+DragPrediction/2CarPlatoon-Leader_0.5L.csv
 
 \.vscode/

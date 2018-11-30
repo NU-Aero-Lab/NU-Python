@@ -1,0 +1,368 @@
+2018-11-28 17:32:24,886 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 17:32:26,339 - transferLabData - DEBUG - TypeError
+Traceback (most recent call last):
+  File "transferLabData.py", line 33, in main
+    pres, temp = enviroSensor.getData()
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/genericDataHandler.py", line 30, in getData
+    return (self.__ave__(0),self.__ave__(1))
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/enviroHat.py", line 23, in __ave__
+    return reduce(lambda x, y: x+y, self.__atm_pres__)/float(self.len())
+TypeError: reduce() of empty sequence with no initial value
+2018-11-28 17:32:27,168 - executer - INFO - Executer: Stopped by User
+2018-11-28 17:32:27,176 - transferLabData - INFO - Stopped by User (KeyboardInterrupt
+2018-11-28 17:43:29,854 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 17:43:31,239 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 17:43:32,590 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 17:43:32,653 - executer - INFO - Executer: Stopped by User
+2018-11-28 17:45:52,544 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 17:45:53,903 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 17:45:55,258 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 17:45:55,825 - executer - INFO - Executer: Stopped by User
+2018-11-28 18:02:25,812 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:04:38,905 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:05:04,971 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LATP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:05:07,641 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:06:13,622 - transferLabData - DEBUG - TypeError
+Traceback (most recent call last):
+  File "transferLabData.py", line 33, in main
+    pres, temp = enviroSensor.getData()
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/genericDataHandler.py", line 30, in getData
+    return (self.__ave__(0),self.__ave__(1))
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/enviroHat.py", line 23, in __ave__
+    return reduce(lambda x, y: x+y, self.__atm_pres__)/float(self.len())
+TypeError: reduce() of empty sequence with no initial value
+2018-11-28 18:06:17,589 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 40, in main
+    dataTrans.sendData("BEAT2", heart.beat())
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:06:19,255 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:06:20,621 - transferLabData - DEBUG - TypeError
+Traceback (most recent call last):
+  File "transferLabData.py", line 33, in main
+    pres, temp = enviroSensor.getData()
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/genericDataHandler.py", line 30, in getData
+    return (self.__ave__(0),self.__ave__(1))
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/enviroHat.py", line 23, in __ave__
+    return reduce(lambda x, y: x+y, self.__atm_pres__)/float(self.len())
+TypeError: reduce() of empty sequence with no initial value
+2018-11-28 18:06:24,986 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LATP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:06:30,677 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:06:36,485 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LATP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:06:42,145 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:06:47,364 - executer - INFO - Executer: Stopped by User
+2018-11-28 18:06:47,384 - transferLabData - INFO - Stopped by User (KeyboardInterrupt
+2018-11-28 18:07:14,123 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:07:19,488 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 40, in main
+    dataTrans.sendData("BEAT2", heart.beat())
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:07:21,155 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:07:26,758 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LATP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:07:29,103 - executer - INFO - Executer: Stopped by User
+2018-11-28 18:09:08,196 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:09:14,128 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LATP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:09:19,647 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:09:25,424 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LATP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:09:31,091 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:09:36,690 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LATP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:09:41,582 - executer - INFO - Executer: Stopped by User
+2018-11-28 18:09:56,159 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:09:57,500 - transferLabData - DEBUG - TypeError
+Traceback (most recent call last):
+  File "transferLabData.py", line 33, in main
+    pres, temp = enviroSensor.getData()
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/genericDataHandler.py", line 30, in getData
+    return (self.__ave__(0),self.__ave__(1))
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/enviroHat.py", line 21, in __ave__
+    return reduce(lambda x, y: x+y, self.__atm_temp__)/float(len(self.__atm_temp__))
+TypeError: reduce() of empty sequence with no initial value
+2018-11-28 18:10:02,090 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LATP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:10:04,855 - executer - INFO - Executer: Stopped by User
+2018-11-28 18:13:36,955 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:13:42,614 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LATP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:13:48,438 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:13:54,478 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LATP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:13:56,843 - executer - INFO - Executer: Stopped by User
+2018-11-28 18:14:09,842 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:14:15,554 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LATP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:14:21,332 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:14:24,274 - executer - INFO - Executer: Stopped by User
+2018-11-28 18:14:24,280 - transferLabData - INFO - Stopped by User (KeyboardInterrupt
+2018-11-28 18:14:46,969 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:14:52,854 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LATP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:14:53,354 - executer - INFO - Executer: Stopped by User
+2018-11-28 18:19:12,780 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:19:18,197 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 40, in main
+    dataTrans.sendData("BEAT2", heart.beat())
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:19:19,950 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:19:25,628 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LATP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:19:31,396 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:19:33,211 - executer - INFO - Executer: Stopped by User
+2018-11-28 18:19:33,219 - transferLabData - INFO - Stopped by User (KeyboardInterrupt
+2018-11-28 18:22:31,824 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:22:50,723 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LAP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:22:53,478 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:22:59,171 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LAP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:23:04,942 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:23:09,578 - executer - INFO - Executer: Stopped by User
+2018-11-28 18:23:09,579 - transferLabData - INFO - Stopped by User (KeyboardInterrupt
+2018-11-28 18:24:05,756 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:24:07,120 - transferLabData - DEBUG - TypeError
+Traceback (most recent call last):
+  File "transferLabData.py", line 33, in main
+    pres, temp = enviroSensor.getData()
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/genericDataHandler.py", line 30, in getData
+    return (self.__ave__(0),self.__ave__(1))
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/enviroHat.py", line 23, in __ave__
+    return reduce(lambda x, y: x+y, self.__atm_pres__)/float(self.len())
+TypeError: reduce() of empty sequence with no initial value
+2018-11-28 18:24:11,682 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LAP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 20, in sendData
+    self.sock.send(packed_data)
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:24:17,207 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:24:22,976 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LAP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 20, in sendData
+    self.sock.send(packed_data)
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:24:28,665 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:24:34,603 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LAP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 20, in sendData
+    self.sock.send(packed_data)
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:24:40,134 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:24:53,861 - executer - INFO - Executer: Stopped by User
+2018-11-28 18:24:53,877 - transferLabData - INFO - Stopped by User (KeyboardInterrupt
+2018-11-28 18:25:54,555 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:26:01,672 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LAP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:26:06,081 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:26:11,201 - executer - INFO - Executer: Stopped by User
+2018-11-28 18:26:11,225 - transferLabData - INFO - Stopped by User (KeyboardInterrupt
+2018-11-28 18:26:58,454 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:27:09,089 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LAP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:27:11,940 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:27:20,622 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LAP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:27:25,377 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:27:36,021 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LAP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:27:38,924 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:27:49,556 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LAP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:27:52,380 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:28:02,117 - executer - INFO - Executer: Stopped by User
+2018-11-28 18:28:02,123 - transferLabData - INFO - Stopped by User (KeyboardInterrupt
+2018-11-28 18:38:19,344 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:40:34,426 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:41:58,869 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LAP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:42:01,324 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:42:07,376 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LAP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 20, in sendData
+    self.sock.send(packed_data)
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:42:13,144 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:42:18,890 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LAP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 20, in sendData
+    self.sock.send(packed_data)
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:42:24,635 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:42:31,343 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LAP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:42:36,149 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:42:41,847 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LAP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 20, in sendData
+    self.sock.send(packed_data)
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:42:47,584 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:42:53,260 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LAP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 20, in sendData
+    self.sock.send(packed_data)
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:42:59,112 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:43:05,080 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LAP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 20, in sendData
+    self.sock.send(packed_data)
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:43:08,543 - executer - INFO - Executer: Stopped by User
+2018-11-28 18:43:41,112 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:46:20,545 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LAP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:46:21,616 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:49:27,957 - transferLabData - DEBUG - IOError
+Traceback (most recent call last):
+  File "transferLabData.py", line 34, in main
+    dataTrans.sendData("LAP2",pres)
+  File "/home/pi/Documents/IoT/NU-Python/WTPySensor2/data_transfer.py", line 17, in sendData
+    self.sock.send(tag.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2018-11-28 18:49:29,057 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:51:40,020 - executer - INFO - Starting (WTPYSensor2)
+2018-11-28 18:52:41,140 - executer - INFO - Executer: Stopped by User
