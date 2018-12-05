@@ -2,15 +2,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Load the data in
-CdX_B = np.genfromtxt('Base-CdX.csv', delimiter=',',skip_header=True)
-CdX_F = np.genfromtxt('Front-CdX.csv', delimiter=',',skip_header=True)
+CdX_B = np.genfromtxt('Base-DX.csv', delimiter=',',skip_header=True)
+CdX_F = np.genfromtxt('Front-DX.csv', delimiter=',',skip_header=True)
 
 # Car Base
 # Split y coordinates
 Y = CdX_B[:,1] < 0.7965
 yNew = CdX_B[Y,0:4]
 
-#  Split z coordinates
+# #  Split z coordinates
 Z = yNew[:,2] > 0.234
 zNew = yNew[Z,0:4]
 X = ((zNew[:,2] > 0.6) | (zNew[:,0] > -0.4))
