@@ -7,14 +7,14 @@ from numpy import linalg as LA
 import matplotlib.pyplot as plt
 from pylab import *
 
-folder = 'H:\\2d POD\\'
+folder = 'C:\\Users\\Hesham\\Documents\\POD Data\\'
 files = os.listdir(folder) # number of files
 nmodes = 30 # Number of Modes
 file_suffix = 'csv'
 var_names = ['Ui', 'Uj', 'Uk']
 
 # velocity mean
-mean = np.genfromtxt('H:\\2d POD\\Mean.csv',usecols=(0,1,2,3,4,5,6),skip_header=1,delimiter=',')
+mean = np.genfromtxt('C:\\Users\\Hesham\\Documents\\POD Data\\Mean.csv',usecols=(0,1,2,3,4,5,6),skip_header=1,delimiter=',')
 u_mean,v_mean = mean[:,1],mean[:,2]
 
 # compose covariance matrix
@@ -39,7 +39,6 @@ for vel_file in range(len(files)):
         index+=1  
 
 U=np.hstack((U,V))
-# saveData = np.savetxt("U.csv", U, delimiter=",")
 
 # eigen decomposition (autocovariance matrix)
 # R(X,X') = U_T * U - squares the matrix 'C' and correlates U&U U&V V&V
@@ -65,13 +64,15 @@ U_reconstructed = np.zeros([len(U[1,:]), nmodes], order='F')
 
 for i in range(len(files)):
     for j in range(nmodes):
+        #print('eigenvectors', v[i,j], 'sigma', sigma[j], 'U:', U[j,:])
         modes[:,j] += (U[j,:]*v[i,j])/sigma[j]
+        #print('modes:', modes[:,j])
     energy = np.transpose(e)
 
 # save the modes
 for j in range(nmodes):
     file_name = '.'.join(['POD_mode', '{:d}'.format(j), file_suffix])
-    np.savetxt(file_name, modes[:,j].reshape(u_mean.size,2), fmt='%12.6e'
+    np.savetxt(file_name, modes[:,j].reshape(u_mean.size, 2, order='F'), fmt='%12.6e'
     , delimiter=',', header=','.join(var_names)
     , comments='')
 
