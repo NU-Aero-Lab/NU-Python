@@ -1,6 +1,7 @@
 from plyfile import PlyData, PlyElement
 import matplotlib.cm as cm
 import numpy as np
+import plotly as plotly
 import plotly.graph_objs as go
 import plotly.figure_factory as FF
 import plotly.plotly as py
@@ -16,16 +17,30 @@ for element in plydata.elements:
 
 # Read the Vertex Coordinates
 points=np.array([plydata['vertex'][k] for k in range(nr_points)])
-points[0]
 
-x,y,z=zip(*points)
+data = np.genfromtxt('points.csv', delimiter=',',skip_header=True)
+points[0]
+print(data)
+
+# Splitting Car Body
+# Split y coordinates
+Y_F = data[:,1] < 0.7965
+yNew_F = data[Y_F,0:4]
+
+#  Split z coordinates
+Z_F = yNew_F[:,2] > 0.2332
+zNew_F = yNew_F[Z_F,0:4]
+X_F = (((zNew_F[:,0] < -4) | (zNew_F[:,2] > 0.6)) | ((zNew_F[:,0] < -4) | (zNew_F[:,2] > 0.6)))
+xNew_F = zNew_F[X_F,0:4]
+
+xNew_F,yNew_F,zNew_F=zip(*points)
 
 faces=[plydata['face'][k][0] for k in range(nr_faces)]
 faces[0]
+saveData = np.savetxt("faces.csv", faces, delimiter=",")
 
 # Graphical object  
-
-Data3 =FF.create_trisurf(x,y,z, faces, colormap=None, plot_edges=None)
+Data3 =FF.create_trisurf(xNew_F,yNew_F,zNew_F, faces, colormap=None, plot_edges=None)
 
 noaxis=dict(showbackground=False,
             showline=False,
@@ -35,19 +50,9 @@ noaxis=dict(showbackground=False,
             title=''
           )
 
+
 fig3 = go.Figure(data=Data3, layout=None)
-# fig3['layout'].update(dict(title=title,
-#                            width=1000,
-#                            height=1000,
-#                            scene=dict(xaxis=noaxis,
-#                                       yaxis=noaxis,
-#                                       zaxis=noaxis,
-#                                       aspectratio=dict(x=1, y=1, z=0.4),
-#                                       camera=dict(eye=dict(x=1.25, y=1.25, z= 1.25)
-#                                      )
-#                            )
-#                      ))
+plotly.offline.plot(fig3, filename='testing.html' )
 
-
-
-pio.write_image(fig3, 'fig1.png')
+# Save plot
+#pio.write_image(fig3, 'fig1.png')
